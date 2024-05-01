@@ -1,5 +1,6 @@
 .interests {
     width: 100%;   
+    height: auto;
     text-align: center;
     padding: 4rem 0;
     background-color: #455483;
@@ -12,26 +13,83 @@
 }
 
 
-.interests .container {
+.container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content:center;
+    align-items: stretch;
 }
 
-.container
+.card-container {
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
 
-.carousel-container1 {
+.card-container2 {
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 500px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.container .card-container .philosophy {
+    background-color: #948CA4;
+    color: #F8F9F9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 400px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+}
+
+.container .card-container2 .classical {
+    padding: 1rem;
+    background-color: #F8F9F9;
+    color: #455483;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 400px;
+    min-width: 300px;
+    width: auto;
+    height: auto;
+
+}
+
+.card img {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    object-fit: cover;
+    max-height: 275px;
+    max-width: 250px;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    top: 0;
+}
+
+.carousel-container {
     display: flex;
     width: 100%;
     height: 100%;
+    flex: 1;
 }
 
-.carousel-container1 .carousel {
-    display: block;
+.carousel-container .carousel{
     width: 500px;
+    margin-left: 2rem; 
 }
 
-.carousel-container1 .carousel img {
+.carousel-container .carousel img {
     object-fit: cover;
     width: 100%;
     height: 400px;
@@ -41,6 +99,15 @@
 @media screen and (max-width: 940px) {
     .container {
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
+    }
+    
+    .carousel-container {
+        display: block;
+        width: 100%;
+    }
+
+    .carousel-container .carousel .carousel-item {
+        position:static;
     }
 }

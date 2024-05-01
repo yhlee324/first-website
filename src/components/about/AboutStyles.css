@@ -2,7 +2,7 @@
     text-align:left;
     background-color: #F8F9F9;
     padding: 1rem;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     position: relative;
 }
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
 .about .container h2 {
@@ -50,9 +51,13 @@
     min-width: 300px;
     width: auto;
     height: auto;
+    margin: auto;
 }
 
 @media screen and (max-width: 940px) {
+    .about {
+        height: auto;
+    }
     .container {
         flex-direction: column;
         justify-content: center

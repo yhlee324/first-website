@@ -7,6 +7,7 @@ import Goldberg from '../../assets/goldberg.jpg';
 import Cat from '../../assets/cat.jpg';
 import Thinker from '../../assets/thinker.png';
 import Classical from '../../assets/classical.jpg';
+import Wittgenstein from '../../assets/wittgenstein.jpg';
 
 function Interests() {
   const [index, setIndex] = useState(0);
@@ -39,11 +40,11 @@ function Interests() {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img src={Goldberg} alt="SecondSlide" />
+              <img src={Wittgenstein} alt="SecondSlide" />
               <Carousel.Caption>
                 <h3>Philosophy</h3>
                 <p>
-                  My favorite philosopher is Wittgenstein.
+                  My favorite philosopher is Wittgenstein--he is an interesting person to study.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
-  --primary-dark: #F6F5F4;
-  --primary-light: #2A3042;
+  --primary-dark: #F8F9F9;
+  --primary-light: #455483;
 }
 
 *{
@@ -34,13 +34,12 @@ h2 {
 }
 
 button {
-  background-image: linear-gradient(45deg, var(--primary-dark) 0%, var(--primary-light) 100%);
   border: 1px solid var(--primary-dark);
   color: #fff;
   padding: .7rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
-  font-family: Nanum Gothic;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (max-width: 940px){

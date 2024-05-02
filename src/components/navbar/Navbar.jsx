@@ -3,10 +3,10 @@ import { BiSearch } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+// import {Link} from 'react-scroll';
 import {
   FaFacebook, FaYoutube, FaInstagram, FaPinterest, FaTwitter,
 } from 'react-icons/fa';
-
 import './NavbarStyles.css';
 
 function Navbar() {
@@ -14,9 +14,9 @@ function Navbar() {
   const handleNav = () => setNav(!nav);
   return (
     <div className={nav ? 'navbar navbar-bg' : 'navbar'}>
-      {/* <div className={nav ? 'logo dark' : 'logo'}>
+      <div className={nav ? 'logo dark' : 'logo'}>
         <h2>Ryan Lee</h2>
-      </div> */}
+      </div>
       <ul className="nav-menu">
         <li>Home</li>
         <li>About</li>

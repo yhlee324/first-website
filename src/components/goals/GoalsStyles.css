@@ -1,0 +1,40 @@
+.goals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.goals h2 {
+    padding: 1rem;
+    text-shadow: #ffffff;
+    color: #414f7a; 
+    font-family:'Courier New', Courier, monospace
+}
+
+.container .card-container {
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: left;
+    flex: 1;
+}
+
+.goals .container .card {
+    margin: 2rem;
+}
+
+.goals .img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.goals .img-container img {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}

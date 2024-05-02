@@ -1,17 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InterestsStyles.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { Card } from 'react-bootstrap';
-import Goldberg from '../../assets/goldberg.jpg';
+import { ref, getDownloadURL } from 'firebase/storage';
+import storage from '../../services/datastore';
 import Cat from '../../assets/cat.jpg';
 import Thinker from '../../assets/thinker.png';
 import Classical from '../../assets/classical.jpg';
 import Wittgenstein from '../../assets/wittgenstein.jpg';
 
 function Interests() {
+  const [goldbergUrl, setGoldbergUrl] = useState('');
+  const goldbergRef = ref(storage, 'goldberg.jpg');
+  useEffect(() => {
+    getDownloadURL(goldbergRef)
+      .then((url) => {
+        setGoldbergUrl(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [goldbergRef]);
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -37,7 +48,7 @@ function Interests() {
         <div className="carousel-container">
           <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
             <Carousel.Item>
-              <img src={Goldberg} alt="FirstSlide" />
+              <img src={goldbergUrl} alt="FirstSlide" />
               <Carousel.Caption>
                 <h3>Classical Music</h3>
                 <p>Bach's Goldberg Variations is my favorite!</p>
@@ -70,8 +81,9 @@ function Interests() {
               I am a big fan of
               {' '}
               <strong>classical music</strong>
-              . I play the piano, violin, and bass.
+              .
             </p>
+            <p>I play the piano, violin, and bass.</p>
             <img src={Classical} alt="Classical" />
           </Card>
         </div>

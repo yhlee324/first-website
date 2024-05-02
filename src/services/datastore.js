@@ -11,7 +11,7 @@ const firebaseConfig = {
   authDomain: 'website-fadbf.firebaseapp.com',
   databaseURL: 'https://website-fadbf-default-rtdb.firebaseio.com',
   projectId: 'website-fadbf',
-  storageBucket: 'website-fadbf.appspot.com',
+  storageBucket: 'gs://website-fadbf.appspot.com',
   messagingSenderId: '443536432414',
   appId: '1:443536432414:web:462535fb7c3e7b6c9d3d0f',
   measurementId: 'G-1SWB58JR03',

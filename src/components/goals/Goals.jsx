@@ -2,33 +2,53 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import './GoalsStyles.css';
-import Dali from '../../assets/dali.png';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Image } from 'react-bootstrap';
 import Chopin from '../../assets/chopin.jpg';
+import Dali from '../../assets/dali.png';
 
 function Goals() {
   return (
-    <div className="goals">
+    <div className="goals" id="goals">
       <h2>Goals</h2>
       <div className="container">
-        <div className="card-container">
-          <Card body className="card1">
-            <h3>DALI</h3>
-            <p>
-              I'm really excited to work with DALI! I can't wait to contribute to new DALI projects and learn new skills along the way!
-            </p>
-          </Card>
-          <Card body className="card2">
-            <h3>Long-term Goal</h3>
-            <p>
-              My long-term goal is to develop an app for classical music enthusiasts.
-              I want an app where you can scan a music sheet and create/edit a new one in better quality.
-            </p>
-          </Card>
-        </div>
-        <div className="img-container">
-          <img src={Dali} alt="DALI" />
-          <img src={Chopin} alt="chopin" />
-        </div>
+        <Row className="row1">
+          <Col>
+            <Card body className="card1">
+              <h3>DALI</h3>
+              <p>
+                I'm really excited to work with DALI!
+                <p>
+                  I can't wait to contribute to new projects and learn new skills along the way!
+                </p>
+              </p>
+            </Card>
+          </Col>
+          <Col>
+            <div className="img-container">
+              <Image src={Dali} alt="DALI" roundedCircle />
+            </div>
+          </Col>
+        </Row>
+        <Row className="row2">
+          <Col>
+            <div className="img-container">
+              <Image src={Chopin} alt="chopin" />
+            </div>
+          </Col>
+          <Col>
+            <Card body className="card2">
+              <h3>Long-term Goal</h3>
+              <p>
+                My long-term goal is to develop an app for classical music enthusiasts.
+              </p>
+              <p>
+                I want an app where you can scan a music sheet and create/edit a new one in better quality.
+              </p>
+            </Card>
+          </Col>
+        </Row>
       </div>
     </div>
   );

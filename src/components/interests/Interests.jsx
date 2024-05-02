@@ -17,7 +17,7 @@ function Interests() {
   };
 
   return (
-    <div className="interests">
+    <div className="interests" id="interests">
       <h2>Some Things That I love</h2>
       <div className="container">
         <div className="card-container">
@@ -25,7 +25,11 @@ function Interests() {
             <img src={Thinker} alt="Thinker" />
             <h3>Philosophy</h3>
             <p>
-              I love reading philosophy books and discussing them with my friends.
+              I love reading
+              {' '}
+              <strong>philosophy</strong>
+              {' '}
+              books and discussing them with my friends.
               (or start pondering about life)
             </p>
           </Card>
@@ -63,7 +67,10 @@ function Interests() {
           <Card body className="classical">
             <h3>Music</h3>
             <p>
-              I am a big fan of classical music. I play the piano, violin, and bass.
+              I am a big fan of
+              {' '}
+              <strong>classical music</strong>
+              . I play the piano, violin, and bass.
             </p>
             <img src={Classical} alt="Classical" />
           </Card>

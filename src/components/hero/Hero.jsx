@@ -4,7 +4,7 @@ import './HeroStyles.css';
 
 function hero() {
   return (
-    <div className="hero">
+    <div className="hero" id="home">
       <div className="overlay" />
       <div className="content">
         <h1>Ryan Lee</h1>

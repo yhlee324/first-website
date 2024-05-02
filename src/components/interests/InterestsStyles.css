@@ -17,13 +17,12 @@
 .container {
     display: flex;
     justify-content:center;
-    align-items: stretch;
+    /* align-items: stretch; */
 }
 
 .card-container {
     border-radius: 10px;
     max-width: 500px;
-    min-width: 300px;
     width: auto;
     height: auto;
     flex-direction: column;
@@ -31,14 +30,11 @@
 }
 
 .card-container2 {
-    padding: 1rem;
     border-radius: 10px;
     max-width: 500px;
-    min-width: 300px;
     width: auto;
     height: auto;
     flex-direction: column;
-    align-items: center;
     flex: 1;
 }
 
@@ -48,7 +44,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 400px;
-    min-width: 300px;
+    min-width: 200px;
     width: auto;
     height: auto;
 }
@@ -60,7 +56,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 400px;
-    min-width: 300px;
+    min-width: 200px;
     width: auto;
     height: auto;
 
@@ -73,7 +69,6 @@
     max-width: 250px;
     margin-bottom: 1.5rem;
     border-radius: 6px;
-    top: 0;
 }
 
 .carousel-container {
@@ -82,17 +77,22 @@
     width: 100%;
     height: 100%;
     flex: 1;
+    margin: 1rem;
 }
 
 .carousel-container .carousel{
-    width: 500px;
-    margin-left: 2rem; 
+    min-width: 350px;
 }
 
-.carousel-container .carousel img {
+.carousel-container .carousel .carousel-item {
+    position:static;
+    height: 300px;
+}
+
+.carousel-container .carousel .carousel-item img {
     object-fit: cover;
     width: 100%;
-    height: 400px;
+    height: 100%;
     box-shadow: 10 4px 8px 0 rgba(0,0,0,0.2);
 }
 
@@ -101,13 +101,13 @@
         flex-direction: column;
         align-items: center;
     }
-    
-    .carousel-container {
-        display: block;
-        width: 100%;
-    }
 
     .carousel-container .carousel .carousel-item {
         position:static;
+        height: 400px;
+    }
+    .carousel-container .carousel .carousel-item img {
+        object-fit: cover;
+        height: 100%;
     }
 }

@@ -1,14 +1,38 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './GoalsStyles.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Image } from 'react-bootstrap';
-import Chopin from '../../assets/chopin.jpg';
-import Dali from '../../assets/dali.png';
+import { getDownloadURL, ref } from 'firebase/storage';
+import storage from '../../services/datastore';
 
 function Goals() {
+  // import photo urls from firebase
+  const [Chopin, setChopin] = useState('');
+  const chopinRef = ref(storage, 'chopin.jpg');
+  useEffect(() => {
+    getDownloadURL(chopinRef)
+      .then((url) => {
+        setChopin(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [chopinRef]);
+  const [Dali, setDali] = useState('');
+  const daliRef = ref(storage, 'dali.png');
+  useEffect(() => {
+    getDownloadURL(daliRef)
+      .then((url) => {
+        setDali(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [daliRef]);
+
   return (
     <div className="goals" id="goals">
       <h2>Goals</h2>

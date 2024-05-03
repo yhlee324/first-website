@@ -58,9 +58,21 @@ li {
     display: none;
 }
 
-.icon {
+.instagram {
     font-size: 1.5rem;
     cursor: pointer;
+    color: #2b3553;
+}
+.linkedin {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2b3553;
+}
+
+.nav-icons {
+    display: flex;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 940px) {
@@ -110,7 +122,12 @@ li {
         margin: 2rem 0;
     }
 
-    .social-icons .icon:hover {
+    .social-icons .instagram:hover {
+        transform: scale(1.5);
+        transition: 0.3s;
+    }
+
+    .social-icons .linkedin:hover {
         transform: scale(1.5);
         transition: 0.3s;
     }

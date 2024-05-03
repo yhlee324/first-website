@@ -21,7 +21,7 @@
 
 .goals .container .card2 {
     margin: 2rem;
-    background-color: #B9B6B6;
+    background-color: #AAAEE5;
 }
 
 .goals .img-container {
@@ -37,4 +37,10 @@
     width: auto;
     height: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and (max-width: 940px) {
+    .row2 {
+        flex-direction: column-reverse;
+    }
 }

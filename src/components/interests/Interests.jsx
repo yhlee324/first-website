@@ -5,12 +5,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Card } from 'react-bootstrap';
 import { ref, getDownloadURL } from 'firebase/storage';
 import storage from '../../services/datastore';
-import Cat from '../../assets/cat.jpg';
-import Thinker from '../../assets/thinker.png';
-import Classical from '../../assets/classical.jpg';
-import Wittgenstein from '../../assets/wittgenstein.jpg';
 
 function Interests() {
+  // Get the download URL for the images
   const [goldbergUrl, setGoldbergUrl] = useState('');
   const goldbergRef = ref(storage, 'goldberg.jpg');
   useEffect(() => {
@@ -22,6 +19,51 @@ function Interests() {
         console.error(error);
       });
   }, [goldbergRef]);
+  const [catUrl, setCatUrl] = useState('');
+  const catRef = ref(storage, 'cat.jpg');
+  useEffect(() => {
+    getDownloadURL(catRef)
+      .then((url) => {
+        setCatUrl(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [catRef]);
+  const [Thinker, setThinker] = useState('');
+  const thinkerRef = ref(storage, 'thinker.png');
+  useEffect(() => {
+    getDownloadURL(thinkerRef)
+      .then((url) => {
+        setThinker(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [thinkerRef]);
+  const [Classical, setClassical] = useState('');
+  const classicalRef = ref(storage, 'classical.jpg');
+  useEffect(() => {
+    getDownloadURL(classicalRef)
+      .then((url) => {
+        setClassical(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [classicalRef]);
+  const [Wittgenstein, setWittgenstein] = useState('');
+  const wittgensteinRef = ref(storage, 'wittgenstein.jpg');
+  useEffect(() => {
+    getDownloadURL(wittgensteinRef)
+      .then((url) => {
+        setWittgenstein(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [wittgensteinRef]);
+  // End of getDownloadURL
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -48,7 +90,7 @@ function Interests() {
         <div className="carousel-container">
           <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
             <Carousel.Item>
-              <img src={goldbergUrl} alt="FirstSlide" />
+              <img src={goldbergUrl} alt="goldberg" />
               <Carousel.Caption>
                 <h3>Classical Music</h3>
                 <p>Bach's Goldberg Variations is my favorite!</p>
@@ -64,11 +106,14 @@ function Interests() {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img src={Cat} alt="LastSLide" />
+              <img src={catUrl} alt="My Cat! :)" />
               <Carousel.Caption>
-                <h3>My Cat</h3>
+                <h3>My Cat Ray</h3>
                 <p>
-                  This is my cat, Ray.
+                  This is Ray.
+                </p>
+                <p>
+                  He helps me debug my code.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>

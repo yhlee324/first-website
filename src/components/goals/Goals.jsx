@@ -33,43 +33,79 @@ function Goals() {
       });
   }, [daliRef]);
 
+  const [Cat, setCatUrl] = useState('');
+  const catRef = ref(storage, 'cat.jpg');
+  useEffect(() => {
+    getDownloadURL(catRef)
+      .then((url) => {
+        setCatUrl(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [catRef]);
+
+  const [selectedCard1, setSelectedCard1] = useState(null);
+  const [selectedCard2, setSelectedCard2] = useState(null);
+  const [selectedCard3, setSelectedCard3] = useState(null);
+
   return (
     <div className="goals" id="goals">
       <h2>Goals</h2>
       <div className="container">
         <Row className="row1">
           <Col>
-            <Card body className="card1">
+            <Card
+              body
+              className="card1"
+              onClick={() => setSelectedCard1(selectedCard1 === 'card1' ? null : 'card1')}
+            >
               <h3>DALI</h3>
-              <p>
-                I'm really excited to work with DALI!
+              <Image src={Dali} alt="DALI" roundedCircle />
+              {selectedCard1 === 'card1' && (
                 <p>
-                  I can't wait to contribute to new projects and learn new skills along the way!
+                  I'm really excited to work with DALI!
+                  <p>
+                    I can't wait to contribute to new projects and learn new skills along the way!
+                  </p>
                 </p>
-              </p>
+              )}
             </Card>
           </Col>
           <Col>
-            <div className="img-container">
-              <Image src={Dali} alt="DALI" roundedCircle />
-            </div>
-          </Col>
-        </Row>
-        <Row className="row2">
-          <Col>
-            <div className="img-container">
+            <Card
+              body
+              className="card2"
+              onClick={() => setSelectedCard2(selectedCard2 === 'card2' ? null : 'card2')}
+            >
+              <h3>App for Classical Music</h3>
               <Image src={Chopin} alt="chopin" />
-            </div>
+              {selectedCard2 === 'card2' && (
+                <p>
+                  One of my long-term goals is to develop an app for classical music enthusiasts.
+                  <p>
+                    I want to create a platform where users can easily organize recordings of classical music.
+                  </p>
+                </p>
+              )}
+            </Card>
           </Col>
           <Col>
-            <Card body className="card2">
-              <h3>Long-term Goal</h3>
-              <p>
-                My long-term goal is to develop an app for classical music enthusiasts.
-              </p>
-              <p>
-                I want an app where you can scan a music sheet and create/edit a new one in better quality.
-              </p>
+            <Card
+              body
+              className="card3"
+              onClick={() => setSelectedCard3(selectedCard3 === 'card3' ? null : 'card3')}
+            >
+              <h3>App for My Cat Ray!</h3>
+              <Image src={Cat} alt="ray" />
+              {selectedCard3 === 'card3' && (
+                <p>
+                  I also plan on developing an app for my cat Ray!
+                  <p>
+                    I want make an app to track his daily activities and also want to conveniently access his favorite music videos, or games.
+                  </p>
+                </p>
+              )}
             </Card>
           </Col>
         </Row>

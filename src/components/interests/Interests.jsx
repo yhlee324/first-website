@@ -1,35 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
 import './InterestsStyles.css';
-import Carousel from 'react-bootstrap/Carousel';
 import { Card } from 'react-bootstrap';
 import { ref, getDownloadURL } from 'firebase/storage';
 import storage from '../../services/datastore';
 
 function Interests() {
   // Get the download URL for the images
-  const [goldbergUrl, setGoldbergUrl] = useState('');
-  const goldbergRef = ref(storage, 'goldberg.jpg');
-  useEffect(() => {
-    getDownloadURL(goldbergRef)
-      .then((url) => {
-        setGoldbergUrl(url);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [goldbergRef]);
-  const [catUrl, setCatUrl] = useState('');
-  const catRef = ref(storage, 'cat.jpg');
-  useEffect(() => {
-    getDownloadURL(catRef)
-      .then((url) => {
-        setCatUrl(url);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [catRef]);
   const [Thinker, setThinker] = useState('');
   const thinkerRef = ref(storage, 'thinker.png');
   useEffect(() => {
@@ -52,84 +29,71 @@ function Interests() {
         console.error(error);
       });
   }, [classicalRef]);
-  const [Wittgenstein, setWittgenstein] = useState('');
-  const wittgensteinRef = ref(storage, 'wittgenstein.jpg');
-  useEffect(() => {
-    getDownloadURL(wittgensteinRef)
-      .then((url) => {
-        setWittgenstein(url);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [wittgensteinRef]);
   // End of getDownloadURL
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+
+  // useState for card selection
+  const [selectedPhilosophy, setSelectedPhilosophy] = useState(false);
+  const [selectedClassical, setSelectedClassical] = useState(false);
 
   return (
     <div className="interests" id="interests">
       <h2>Some Things That I love</h2>
       <div className="container">
         <div className="card-container">
-          <Card body className="philosophy">
-            <img src={Thinker} alt="Thinker" />
+          <Card
+            body
+            className="philosophy"
+            onClick={() => setSelectedPhilosophy(selectedPhilosophy === 'philosophy' ? null : 'philosophy')}
+          >
             <h3>Philosophy</h3>
-            <p>
-              I love reading
-              {' '}
-              <strong>philosophy</strong>
-              {' '}
-              books and discussing them with my friends.
-              (or start pondering about life)
-            </p>
+            <img src={Thinker} alt="Thinker" />
+            {selectedPhilosophy === 'philosophy' && (
+            <div>
+              <p>
+                I love reading
+                {' '}
+                <strong>philosophy</strong>
+                {' '}
+                books and discussing them with my friends.
+                (or start pondering about life)
+              </p>
+              <p>
+                My favorite philosopher is
+                {' '}
+                <strong> Wittgenstein</strong>
+                {' '}
+                and I love his book, "Tractatus Logico-Philosophicus."
+              </p>
+            </div>
+            )}
           </Card>
         </div>
-        <div className="carousel-container">
-          <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
-            <Carousel.Item>
-              <img src={goldbergUrl} alt="goldberg" />
-              <Carousel.Caption>
-                <h3>Classical Music</h3>
-                <p>Bach's Goldberg Variations is my favorite!</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={Wittgenstein} alt="SecondSlide" />
-              <Carousel.Caption>
-                <h3>Philosophy</h3>
-                <p>
-                  My favorite philosopher is Wittgenstein--he is an interesting person to study.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img src={catUrl} alt="My Cat! :)" />
-              <Carousel.Caption>
-                <h3>My Cat Ray</h3>
-                <p>
-                  This is Ray.
-                </p>
-                <p>
-                  He helps me debug my code.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
         <div className="card-container2">
-          <Card body className="classical">
+          <Card
+            body
+            className="classical"
+            onClick={() => setSelectedClassical(selectedClassical === 'classical' ? null : 'classical')}
+          >
             <h3>Music</h3>
-            <p>
-              I am a big fan of
-              {' '}
-              <strong>classical music</strong>
-              .
-            </p>
-            <p>I play the piano, violin, and bass.</p>
             <img src={Classical} alt="Classical" />
+            {selectedClassical === 'classical' && (
+            <div>
+              <p>
+                I am a big fan of
+                {' '}
+                <strong>classical music</strong>
+                {' '}
+                (yes, I'm a nerd).
+              </p>
+              <p>I play the piano, violin, and bass.</p>
+              <p>
+                My favorite piece is Bach's
+                {' '}
+                <strong>Goldberg Variations</strong>
+                , which is the music that plays when you press the play button on the top right!
+              </p>
+            </div>
+            )}
           </Card>
         </div>
       </div>

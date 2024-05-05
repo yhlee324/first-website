@@ -23,7 +23,7 @@
 }
 
 .navbar-bg {
-    background-color: #2b3553;
+    background-color: #4A3E5A;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }   
 
@@ -39,7 +39,7 @@
 
 .nav-menu .nav-item a:hover {
     padding-bottom: 12px;
-    border-bottom: 3px solid #98C1E0;
+    border-bottom: 3px solid #94A4B8;
     cursor: pointer;
 }
 
@@ -75,6 +75,16 @@ li {
     margin-bottom: 1rem;
 }
 
+.music-icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2b3553;
+}
+.music-icon:hover {
+    color: #94A4B8;
+}
+
 @media screen and (max-width: 940px) {
 
     .mobile-menu {
@@ -91,7 +101,7 @@ li {
     }
 
     .h2-nav {
-        color: #F8F9F9;
+        color: #EFF0EC;
         margin-left: 0.5rem;
     }
 

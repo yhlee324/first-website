@@ -1,9 +1,9 @@
 .interests {
     width: 100%;   
-    height: auto;
+    height: 85vh;
     text-align: center;
     padding: 4rem 0;
-    background-color: #455483;
+    background-color: #847F8C;
 }
 
 .interests h2 {
@@ -38,28 +38,29 @@
     flex: 1;
 }
 
-.container .card-container .philosophy {
-    background-color: #948CA4;
-    color: #F8F9F9;
+.container .card-container .philosophy,
+.container .card-container2 .classical {
+    background-color: #EFF0EC;
+    color: #4A3E5A;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 400px;
     min-width: 200px;
     width: auto;
     height: auto;
+    user-select: none;
 }
 
-.container .card-container2 .classical {
-    padding: 1rem;
-    background-color: #F8F9F9;
-    color: #455483;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    max-width: 400px;
-    min-width: 200px;
-    width: auto;
-    height: auto;
+.container .card-container .philosophy:hover {
+    cursor: pointer;
+    background-color: #4A3E5A;
+    color: #EFF0EC;
+}
 
+.container .card-container2 .classical:hover {
+    cursor: pointer;
+    background-color: #4A3E5A;
+    color: #EFF0EC;
 }
 
 .card img {
@@ -71,43 +72,16 @@
     border-radius: 6px;
 }
 
-.carousel-container {
-    align-items: center;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex: 1;
-    margin: 1rem;
-}
-
-.carousel-container .carousel{
-    min-width: 350px;
-}
-
-.carousel-container .carousel .carousel-item {
-    position:static;
-    height: 300px;
-}
-
-.carousel-container .carousel .carousel-item img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    box-shadow: 10 4px 8px 0 rgba(0,0,0,0.2);
-}
-
 @media screen and (max-width: 940px) {
+    .interests {
+        height: auto;
+    }
     .container {
         flex-direction: column;
         align-items: center;
     }
 
-    .carousel-container .carousel .carousel-item {
-        position:static;
-        height: 400px;
-    }
-    .carousel-container .carousel .carousel-item img {
-        object-fit: cover;
-        height: 100%;
+    .container .card-container2 {
+        margin-top: 2rem;
     }
 }

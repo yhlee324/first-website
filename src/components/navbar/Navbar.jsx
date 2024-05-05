@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-scroll';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import './NavbarStyles.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import audioFile from '../../assets/audio.mp3';
 
 function Navbar() {
+  // Navbar
   const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
   const handleResize = () => {
@@ -13,6 +17,11 @@ function Navbar() {
       setNav(false);
     }
   };
+  // Audio
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  // Resize
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => {
@@ -38,10 +47,31 @@ function Navbar() {
           </li>
         </ul>
         <div className="nav-icons">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <audio ref={audioRef} src={audioFile}>
+            <track kind="captions" srcLang="en" label="English" />
+          </audio>
+          <FontAwesomeIcon
+            className="music-icon"
+            icon={isPlaying ? faPause : faPlay}
+            type="button"
+            onClick={() => {
+              if (isPlaying) {
+                audioRef.current.pause();
+              } else {
+                audioRef.current.play();
+              }
+              setIsPlaying(!isPlaying);
+            }}
+          />
+          <a
+            href="https://www.instagram.com/ryanlee_yanghwa?igsh=YzRjbnB4YWQ4a2Vi&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
             <FaInstagram className="instagram" />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/yang-hwa-lee-7b4249212/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin className="linkedin" />
           </a>
         </div>
@@ -66,10 +96,28 @@ function Navbar() {
           </ul>
           <div className="mobile-menu-button">
             <div className="social-icons">
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <FontAwesomeIcon
+                className="music-icon"
+                icon={isPlaying ? faPause : faPlay}
+                type="button"
+                onClick={() => {
+                  if (isPlaying) {
+                    audioRef.current.pause();
+                  } else {
+                    audioRef.current.play();
+                  }
+                  setIsPlaying(!isPlaying);
+                }}
+              />
+              <a
+                href="https://www.instagram.com/ryanlee_yanghwa?igsh=YzRjbnB4YWQ4a2Vi&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <FaInstagram className="instagram" />
               </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/yang-hwa-lee-7b4249212/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin className="linkedin" />
               </a>
             </div>
